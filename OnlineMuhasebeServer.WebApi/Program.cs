@@ -24,6 +24,7 @@ builder.Services.AddScoped<ICompanyService, CompanyService>();
 builder.Services.AddScoped<IUnitOfWork,UnitOfWork>();	
 builder.Services.AddScoped<IUCAFCommandRepository,UCAFCommandRepository>();	
 builder.Services.AddScoped<IUCAFQueryRepository,UCAFQueryRepository>();	
+builder.Services.AddScoped<IContextService, ContextService>();
 
 builder.Services.AddMediatR(typeof
 	(OnlineMuhasebeServer.Application.AssemblyReference).Assembly);

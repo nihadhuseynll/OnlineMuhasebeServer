@@ -11,5 +11,6 @@ namespace OnlineMuhasebeServer.Persistance.Repositories.UCAFRepositories
 {
 	public sealed class UCAFQueryRepository : QueryRepository<UniformChartOfAccount>,IUCAFQueryRepository
 	{
+
 	}
 }
