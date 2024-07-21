@@ -30,6 +30,7 @@ namespace OnlineMuhasebeServer.Persistance.Services.CompanyServices
 			_commandRepository.SetDbContextInstance(_context);
 			_unitOfWork.SetDbContextInstance(_context);
 			UniformChartOfAccount uniformChartOfAccount = _mapper.Map<UniformChartOfAccount>(request);
+			uniformChartOfAccount.Id=Guid.NewGuid().ToString();	
 			await _commandRepository.AddAsync(uniformChartOfAccount);
 			await _unitOfWork.SaveChangesAsync();	
 		}

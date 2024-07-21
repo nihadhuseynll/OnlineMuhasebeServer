@@ -28,7 +28,7 @@ namespace OnlineMuhasebeServer.Persistance.Repositories
 
 
 		private CompanyDbContext _context;
-		public DbSet<T> Entity { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+		public DbSet<T> Entity { get ; set ; }
 
 		public void SetDbContextInstance(DbContext context)
 		{
