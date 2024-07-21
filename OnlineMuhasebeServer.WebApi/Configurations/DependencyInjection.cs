@@ -14,11 +14,13 @@ namespace OnlineMuhasebeServer.WebApi.Configurations
 				  !typeInfo.IsInterface &&
 				  !typeInfo.IsAbstract;
 
+
 			IEnumerable<IServiceInstaller> serviceInstallers=assemblies
 				.SelectMany(a => a.DefinedTypes)
 				.Where(IsAssignableToType<IServiceInstaller>)
 				.Select(Activator.CreateInstance)
 				.Cast<IServiceInstaller>();
+
 
 			foreach (var serviceInstaller in serviceInstallers)
 			{
