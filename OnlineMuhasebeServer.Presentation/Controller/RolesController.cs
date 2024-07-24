@@ -35,10 +35,7 @@ namespace OnlineMuhasebeServer.Presentation.Controller
 		[HttpGet("[action]/{id}")]
 		public async Task<IActionResult> DeleteRole(string id)
 		{
-			DeleteRoleCommand request = new DeleteRoleCommand()
-			{
-				Id = id
-			};
+			DeleteRoleCommand request = new DeleteRoleCommand(id);
 			DeleteRoleCommandResponse response = await _mediator.Send(request);	
 			return Ok(response);
 		}
