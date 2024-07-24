@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace OnlineMuhasebeServer.Application.Features.CompanyFeatures.UCAFFeatures.Commands.CreateUCAF
 {
-	public sealed class CreateUCAFResponse
-	{
-		public string Message { get; set; } = "Hesap Planı Kaydı Başarıyla Tamamlandı.";
-	}
+	public sealed record CreateUCAFCommandResponse(
+		string Message = "Hesap Planı Kaydı Başarıyla Tamamlandı."
+		);
 }
