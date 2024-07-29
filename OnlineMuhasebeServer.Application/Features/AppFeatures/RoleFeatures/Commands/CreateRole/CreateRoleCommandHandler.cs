@@ -4,11 +4,11 @@ using OnlineMuhasebeServer.Domain.AppEntities.Identity;
 
 namespace OnlineMuhasebeServer.Application.Features.AppFeatures.RoleFeatures.Commands.CreateRole
 {
-	public class CreateRoleCommandHandle : ICommandHandler<CreateRoleCommand, CreateRoleCommandResponse>
+	public class CreateRoleCommandHandler : ICommandHandler<CreateRoleCommand, CreateRoleCommandResponse>
     {
         private readonly IRoleService _roleService;
 
-		public CreateRoleCommandHandle(IRoleService roleService)
+		public CreateRoleCommandHandler(IRoleService roleService)
 		{
 			_roleService = roleService;
 		}
