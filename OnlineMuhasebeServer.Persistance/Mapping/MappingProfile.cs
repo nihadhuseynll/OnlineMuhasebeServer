@@ -12,7 +12,7 @@ namespace OnlineMuhasebeServer.Persistance.Mapping
 	{
 		public MappingProfile()
 		{
-			CreateMap<CreateCompanyCommandRequest,Company>().ReverseMap();
+			CreateMap<CreateCompanyCommand,Company>().ReverseMap();
 			CreateMap<CreateUCAFCommand,UniformChartOfAccount>().ReverseMap();	
 			CreateMap<CreateRoleCommand,AppRole>().ReverseMap();
 		}

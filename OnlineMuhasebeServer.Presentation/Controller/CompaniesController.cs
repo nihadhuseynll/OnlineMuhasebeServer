@@ -17,9 +17,9 @@ namespace OnlineMuhasebeServer.Presentation.Controller
 		{
 		}
 		[HttpPost("[action]")]
-		public async Task<IActionResult> CreateCompany(CreateCompanyCommandRequest request)
+		public async Task<IActionResult> CreateCompany(CreateCompanyCommand request, CancellationToken cancellationToken)
 		{
-			CreateCompanyCommandResponse response = await _mediator.Send(request);
+			CreateCompanyCommandResponse response = await _mediator.Send(request,cancellationToken);
 			return Ok(response);
 		}
 		[HttpGet("[action]")]
@@ -28,6 +28,20 @@ namespace OnlineMuhasebeServer.Presentation.Controller
 			MigrateCompanyDatabasesCommand request = new();
 			MigrateCompanyDatabasesCommandResponse response = await _mediator.Send(request);
 			return Ok(response);
+		}
+		[HttpGet]
+		public async Task<IActionResult> CheckCancellationToken(CancellationToken cancellationToken)
+		{
+			try
+			{
+				await Task.Delay(10000,cancellationToken);
+				Console.WriteLine("Cancellation token iptal edildi.");
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine("Cancellation token-de problem yok.");
+			}
+			return NoContent();
 		}
 	}
 }

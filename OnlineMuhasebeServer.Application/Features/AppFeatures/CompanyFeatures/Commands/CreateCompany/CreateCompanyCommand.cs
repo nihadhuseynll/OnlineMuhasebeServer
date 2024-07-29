@@ -2,7 +2,7 @@
 
 namespace OnlineMuhasebeServer.Application.Features.AppFeatures.CompanyFeatures.Commands.CreateCompany
 {
-	public sealed record CreateCompanyCommandRequest(
+	public sealed record CreateCompanyCommand(
 		string Name,
 		string ServerName,
 		string DatabaseName,

@@ -4,7 +4,7 @@ using OnlineMuhasebeServer.Domain.AppEntities;
 
 namespace OnlineMuhasebeServer.Application.Features.AppFeatures.CompanyFeatures.Commands.CreateCompany
 {
-	public sealed class CreateCompanyCommandHandler : ICommandHandler<CreateCompanyCommandRequest, CreateCompanyCommandResponse>
+	public sealed class CreateCompanyCommandHandler : ICommandHandler<CreateCompanyCommand, CreateCompanyCommandResponse>
 	{
 		private readonly ICompanyService _companyService;
 
@@ -13,12 +13,12 @@ namespace OnlineMuhasebeServer.Application.Features.AppFeatures.CompanyFeatures.
 			_companyService = companyService;
 		}
 
-		public async Task<CreateCompanyCommandResponse> Handle(CreateCompanyCommandRequest request, CancellationToken cancellationToken)
+		public async Task<CreateCompanyCommandResponse> Handle(CreateCompanyCommand request, CancellationToken cancellationToken)
 		{
 			Company company = await _companyService.GetCompanyByName(request.Name);
 			if (company != null) throw new Exception("Bu şirket adı daha önce kullanılmış.");
 
-			await _companyService.CreateCompany(request);
+			await _companyService.CreateCompany(request,cancellationToken);
 			return new();
 		}
 	}

@@ -14,9 +14,9 @@ namespace OnlineMuhasebeServer.Presentation.Controller
 		{
 		}
 		[HttpPost("[action]")]
-		public async Task<IActionResult> CreateRole(CreateRoleCommand request)
+		public async Task<IActionResult> CreateRole(CreateRoleCommand request, CancellationToken cancellationToken)
 		{
-			CreateRoleCommandResponse response = await _mediator.Send(request);
+			CreateRoleCommandResponse response = await _mediator.Send(request,cancellationToken);
 			return Ok(response);	
 		}
 		[HttpGet("[action]")]
